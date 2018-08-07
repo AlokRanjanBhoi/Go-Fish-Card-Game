@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Go Fish!</title>
+    <script src="jquery-2.1.0.min.js"></script>
+    <script src="Rank.js"></script>
+    <script src="Suit.js"></script>
+    <script src="Deck.js"></script>
+    <script src="Card.js"></script>
+    <script src="Player.js"></script>
+    <script src="ComputerPlayer.js"></script>
+    <script src="HumanPlayer.js"></script>
+    <script src="GamePlay.js"></script>
+    <script src="cards.js"></script>
+
+
+
+
+    <style type="text/css">
+
+        h1
+        {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        h2
+        {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        #startingCards
+        {
+            width: 50px;
+        }
+
+        #startingCards
+        {
+            width: 50px;
+        }
+
+
+        #delay
+        {
+            width: 50px;
+        }
+
+        .inputField
+        {
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        .player
+        {
+            width: 30%;
+            float: left;
+            border: solid 3px gray;
+            padding: 0 5px 0 5px;
+            margin-left: 15px;
+            margin-top: 0px;
+        }
+	
+        .cards
+        {
+
+        }
+        .card
+        {
+            display: block;
+            float: left;
+            width: 71px;
+            height: 96px;
+            text-align: center;
+            margin: 5px;
+            text-decoration: none;
+            outline: none;
+        }
+
+
+        .stacks
+        {
+            clear: both;
+            margin: 15px 0 15px 5px;
+            border: solid 3px green;
+            min-height: 170px;
+        }
+        .stacks:after
+        {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        .logContainer
+        {
+            display: block;
+            float: right;
+            width: 30%;
+            border: solid 3px blue;
+            height: 600px;
+            overflow-y: scroll;
+        }
+
+        .logs
+        {
+            margin-left: 5px;
+        }
+        .logs > div
+        {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1 style="color:green;">GO !FISH</h1>
+<div class="logClogContainer">
+  <h2 style="color:blue;">Created By: Alok Ranjan Bhoi</h2>
+  <h2 style="color:blue;">Roll No: 15MCA03 (SUIIT)</h2>
+</div>
+
+
+    <div class="announcer">
+        <h1 style="color:red;"id="announcement"></h1>
+    </div>
+    <div id="gameBoard">
+
+    </div>
+    <div class="logContainer">
+        <h1>Log</h1>
+        <div class="logs"></div>
+
+    </div>
+
+
+</body>
+</html>
