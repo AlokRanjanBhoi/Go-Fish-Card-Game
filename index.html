@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Go Fish!</title>
+    <script src="jquery-2.1.0.min.js"></script>
+    <script src="Rank.js"></script>
+    <script src="Suit.js"></script>
+    <script src="Deck.js"></script>
+    <script src="Card.js"></script>
+    <script src="Player.js"></script>
+    <script src="ComputerPlayer.js"></script>
+    <script src="HumanPlayer.js"></script>
+    <script src="GamePlay.js"></script>
+    <script src="cards.js"></script>
+
+
+
+
+    <style type="text/css">
+
+        h1
+        {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        h3
+        {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        #startingCards
+        {
+            width: 50px;
+        }
+
+        #startingCards
+        {
+            width: 50px;
+        }
+
+
+        #delay
+        {
+            width: 50px;
+        }
+
+        .inputField
+        {
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        .player
+        {
+            width: 30%;
+            float: left;
+            border: solid 3px gray;
+            padding: 0 5px 0 5px;
+            margin-left: 15px;
+            margin-top: 0px;
+        }
+	
+        .cards
+        {
+
+        }
+        .card
+        {
+            display: block;
+            float: left;
+            width: 71px;
+            height: 96px;
+            text-align: center;
+            margin: 5px;
+            text-decoration: none;
+            outline: none;
+        }
+
+
+        .stacks
+        {
+            clear: both;
+            margin: 15px 0 15px 5px;
+            border: solid 3px green;
+            min-height: 170px;
+        }
+        .stacks:after
+        {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+
+        .logContainer
+        {
+            display: block;
+            float: right;
+            width: 30%;
+            border: solid 3px blue;
+            height: 600px;
+            overflow-y: scroll;
+        }
+
+        .logs
+        {
+            margin-left: 5px;
+        }
+        .logs > div
+        {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1 style="color:green;">GO !FISH</h1>
+<center><h3 style="color:blue;">Go Fish is a fun card game that uses a standard 52 card deck. It can be played with 2 people.</h3></center>
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">Created By:</button>
+  <div class="dropdown-content" style="left:0;">
+    <p> Name: Alok Ranjan Bhoi</p>
+    <p> Roll No: 15MCA03 (2015-18)</p>
+    <p> Guided By: Atul Nag</p>
+    <p> HoD,Asst. Professor, Bioinformatics</P>
+    <p>Sambalpur University Information Technology, Burla</p>
+    <a href="#"></a>
+
+  </div>
+</div>
+<div class="dropdown" style="float:right;">
+  <button class="dropbtn"> How to play:
+Go Fish
+</button>
+  <div class="dropdown-content">
+	<h3>Starting the Game</h3>
+  	<p>The first thing you do is deal cards to the players. For 2 players you deal each player 7 cards. The rest of the deck is then spread out in the middle of the players face down. This can be called the pool of cards.
+</p>
+	<h3>Taking a Turn</h3>
+	<p>During a turn the player asks another player(here 2 player <i>Human</i> and <i>Computer</i>). if they have a particular rank of card. For example, the human may ask Computer if she has any nines. If Computer has any nines, then she must give all of her nines to the human. If Computer doesn't have any nines, then she says "go fish".<br> <br>When you "go fish" you can take any card from the pool.<br> <br>If the Human gets the cards they asked for, either from the pool or from Computer, then the Human gets another turn.<br> <br>If the Human gets all four suits of the same rank, then they can put the cards face up in front of them. For example, if you already had a nine of hearts, clubs, and spades; then you picked up the nine of diamonds from the pool, you then get to place the set of nine cards down in front of you and you get another turn. </p>
+	<h3>Winning the Game</h3>
+	<p>Go Fish is over when one player runs out of cards or there are no more cards in the pool. The winner is then determined by who has the most piles or suits of cards in front of them. </p>
+	<h3>Go Fish Strategy</h3>
+	<p>
+    Try to memorize what cards the other players have and want.<br>
+    If you pick up a card rank from the pool that you didn't have, it can be good to guess that rank on your next turn.<br>
+    Try to Go Fish more at the start of the game. This gets you more cards and a better chance of getting more books and matches later.<br>
+</p>
+    <a href="#"></a>
+  </div>
+</div>
+
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 280px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 280px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+
+
+
+
+
+    <div class="announcer">
+        <h1 style="color:red;"id="announcement"></h1>
+    </div>
+    <div id="gameBoard">
+
+    </div>
+    <div class="logContainer">
+        <h1>Log</h1>
+        <div class="logs"></div>
+
+    </div>
+
+
+</body>
+</html>
